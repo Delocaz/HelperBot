@@ -1,0 +1,11 @@
+name: HelperBot
+version: 2.0
+main: me.Delocaz.HelperBot.HelperBot
+author: Delocaz
+commands:
+    help:
+        usage: /<command> <page>
+    addhelp:
+        usage: /<command> <page> <content>
+    delhelp:
+        usage: /<command> <page>
