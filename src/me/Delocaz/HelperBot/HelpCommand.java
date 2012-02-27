@@ -26,11 +26,14 @@ public class HelpCommand implements CommandExecutor {
 		this.hb = hb;
 	}
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		String page;
+		String page = "";
 		if (args.length == 0) {
 			page = hb.getConfig().getString("default");
 		} else {
-			page = args[0];
+			for(String arg:args){
+				if(!page.equals(""))page += " ";
+				page += arg;
+			}
 		}
 		if (sender instanceof Player) {
 			if (!(((Player) sender).hasPermission("helperbot.help") || ((Player) sender).isOp())) {
