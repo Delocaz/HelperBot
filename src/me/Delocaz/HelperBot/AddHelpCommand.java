@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,10 +17,10 @@ public class AddHelpCommand implements CommandExecutor {
 	}
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (args.length == 0) {
-			sender.sendMessage("Please specify a page.");
+			sender.sendMessage(hb.cf.getLang("specifyPage"));
 			return true;
 		} else if (args.length == 1) {
-			sender.sendMessage("Tell me what to put in " + args[0] + "!");
+			sender.sendMessage(hb.cf.getLang("missingContent").replaceAll("%page", args[0]));
 			return true;
 		} else if (sender instanceof Player) {
 			if (!(((Player) sender).hasPermission("helperbot.addhelp") || ((Player) sender).isOp())) {
@@ -47,7 +46,7 @@ public class AddHelpCommand implements CommandExecutor {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		sender.sendMessage(ChatColor.GREEN + page + " created successfully.");
+		sender.sendMessage(hb.cf.getLang("createdSuccessfully").replaceAll("%page", page));
 		return true;
 	}
 }

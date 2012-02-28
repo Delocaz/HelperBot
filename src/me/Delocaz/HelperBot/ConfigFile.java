@@ -1,7 +1,15 @@
 package me.Delocaz.HelperBot;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.YamlConfiguration;
+
 public class ConfigFile {
 	HelperBot hb;
+	YamlConfiguration lng;
 	enum versions {
 		HB2_0, HB2_1;
 		static versions current = HB2_1;
@@ -30,6 +38,20 @@ public class ConfigFile {
 		init();
 	}
 	public void init() {
+		lng = new YamlConfiguration();
+		try {
+			lng.load(new File(hb.getDataFolder().getPath() + File.separator + "lang" + File.separator + "language.yml"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InvalidConfigurationException e) {
+			e.printStackTrace();
+		}
+		lng.addDefault("deletedSuccessfully", "&a%page deleted successfully.");
+		lng.addDefault("createdSuccessfully", "&a%page created successfully.");
+		lng.addDefault("specifyPage", "&4Please specify a page.");
+		lng.addDefault("missingContent", "&4Tell me what to put in %page!");
 		hb.getConfig().addDefault("extension", "txt");
 		hb.getConfig().addDefault("addhelp.newline", "/n/");
 		hb.getConfig().addDefault("version_DONOTCHANGE", "HB2_1");
@@ -42,7 +64,7 @@ public class ConfigFile {
 		return hb.getConfig().getString(path);
 	}
 	public String getLang(String path) {
-		return hb.getConfig().getString(path);
+		return lng.getString(path).replaceAll("&([0-9a-f])", "\u00A7$1");
 	}
 	public void reload() {
 		hb.reloadConfig();
@@ -54,7 +76,6 @@ public class ConfigFile {
 		case HB2_0:
 			hb.getConfig().set("default", "default");
 			hb.getConfig().set("version_DONOTCHANGE", versions.current.toString());
-			return;
 		default:
 			return;
 		}
