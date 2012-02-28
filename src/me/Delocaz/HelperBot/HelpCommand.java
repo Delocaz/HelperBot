@@ -36,7 +36,7 @@ public class HelpCommand implements CommandExecutor {
 			}
 		}
 		if (sender instanceof Player) {
-			if (!(((Player) sender).hasPermission("helperbot.help") || ((Player) sender).isOp())) {
+			if (!(((Player) sender).hasPermission(hb.cf.get("permissions.help")) || ((Player) sender).isOp())) {
 				sender.sendMessage("Unknown command. Type \"help\" for help.");
 				return true;
 			}
@@ -95,7 +95,7 @@ public class HelpCommand implements CommandExecutor {
 		return o;
 	}
 	public String shortcodify(String s, CommandSender sender) {
-		String sc_player, sc_coords, sc_x, sc_y, sc_z, sc_level, sc_xp, sc_world;
+		String sc_player, sc_coords, sc_x, sc_y, sc_z, sc_level, sc_world;
 		if (!(sender instanceof Player)) {
 			sc_player = "Console";
 			sc_coords = "null";
@@ -103,7 +103,6 @@ public class HelpCommand implements CommandExecutor {
 			sc_y = "null";
 			sc_z = "null";
 			sc_level = "null";
-			sc_xp = "null";
 			sc_world = "null";
 		} else {
 			Player p = (Player) sender;
@@ -113,17 +112,15 @@ public class HelpCommand implements CommandExecutor {
 			sc_z = p.getLocation().getBlockZ() + "";
 			sc_coords = sc_x + ", " + sc_y + ", " + sc_z;
 			sc_level = p.getLevel() + "";
-			sc_xp = p.getExp() + "";
 			sc_world = p.getWorld().getName();
 		}
-		s = s.replaceAll("%{player}", sc_player);
-		s = s.replaceAll("%{coords}", sc_coords);
-		s = s.replaceAll("%{x}", sc_x);
-		s = s.replaceAll("%{y}", sc_y);
-		s = s.replaceAll("%{z}", sc_z);
-		s = s.replaceAll("%{level}", sc_level);
-		s = s.replaceAll("%{xp}", sc_xp);
-		s = s.replaceAll("%{world}", sc_world);
+		s = s.replaceAll(hb.cf.get("shortcodes.player"), sc_player);
+		s = s.replaceAll(hb.cf.get("shortcodes.coords"), sc_coords);
+		s = s.replaceAll(hb.cf.get("shortcodes.x"), sc_x);
+		s = s.replaceAll(hb.cf.get("shortcodes.y"), sc_y);
+		s = s.replaceAll(hb.cf.get("shortcodes.z"), sc_z);
+		s = s.replaceAll(hb.cf.get("shortcodes.level"), sc_level);
+		s = s.replaceAll(hb.cf.get("shortcodes.world"), sc_world);
 		return s;
 	}
 }

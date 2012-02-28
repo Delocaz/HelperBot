@@ -17,7 +17,7 @@ public class DelHelpCommand implements CommandExecutor {
 			sender.sendMessage(hb.cf.getLang("specifyPage"));
 			return true;
 		} else if (sender instanceof Player) {
-			if (!(((Player) sender).hasPermission("helperbot.delhelp") || ((Player) sender).isOp())) {
+			if (!(((Player) sender).hasPermission(hb.cf.get("permissions.delhelp")) || ((Player) sender).isOp())) {
 				sender.sendMessage("Unknown command. Type \"help\" for help.");
 				return true;
 			}

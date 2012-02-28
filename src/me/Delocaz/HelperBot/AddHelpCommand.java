@@ -23,7 +23,7 @@ public class AddHelpCommand implements CommandExecutor {
 			sender.sendMessage(hb.cf.getLang("missingContent").replaceAll("%page", args[0]));
 			return true;
 		} else if (sender instanceof Player) {
-			if (!(((Player) sender).hasPermission("helperbot.addhelp") || ((Player) sender).isOp())) {
+			if (!(((Player) sender).hasPermission(hb.cf.get("permissions.addhelp")) || ((Player) sender).isOp())) {
 				sender.sendMessage("Unknown command. Type \"help\" for help.");
 				return true;
 			}
