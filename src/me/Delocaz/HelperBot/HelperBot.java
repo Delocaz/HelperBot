@@ -11,6 +11,7 @@ public class HelperBot extends JavaPlugin {
 		getCommand("delhelp").setExecutor(new DelHelpCommand(this));
 	}
 	public void onDisable() {
+		System.out.println("[HelperBot] Bye!");
 	}
 	public void disable() {
 		setEnabled(false);
