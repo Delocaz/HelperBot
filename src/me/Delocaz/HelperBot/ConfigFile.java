@@ -1,6 +1,5 @@
 package me.Delocaz.HelperBot;
 
-
 public class ConfigFile {
 	HelperBot hb;
 	enum versions {
@@ -40,6 +39,9 @@ public class ConfigFile {
 		hb.saveConfig();
 	}
 	public String get(String path) {
+		return hb.getConfig().getString(path);
+	}
+	public String getLang(String path) {
 		return hb.getConfig().getString(path);
 	}
 	public void reload() {
