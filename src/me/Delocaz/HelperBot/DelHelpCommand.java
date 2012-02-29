@@ -18,7 +18,7 @@ public class DelHelpCommand implements CommandExecutor {
 			return true;
 		} else if (sender instanceof Player) {
 			if (!(((Player) sender).hasPermission(hb.cf.get("permissions.delhelp")) || ((Player) sender).isOp())) {
-				sender.sendMessage("Unknown command. Type \"help\" for help.");
+				sender.sendMessage(hb.cf.getLang("noPermission"));
 				return true;
 			}
 		}

@@ -54,6 +54,7 @@ public class ConfigFile {
 		lng.addDefault("createdSuccessfully", "&a%page created successfully.");
 		lng.addDefault("specifyPage", "&4Please specify a page.");
 		lng.addDefault("missingContent", "&4Tell me what to put in %page!");
+		lng.addDefault("noPermission", "Unknown command. Type \"help\" for help.");
 		lng.options().copyDefaults(true);
 		try {
 			lng.save(f);
