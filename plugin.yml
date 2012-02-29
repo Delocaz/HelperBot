@@ -5,6 +5,7 @@ author: Delocaz
 commands:
     help:
         usage: /<command> <page>
+        aliases: [helpme, plzhelp, icanhazhelp, halp]
     addhelp:
         usage: /<command> <page> <content>
     delhelp:
