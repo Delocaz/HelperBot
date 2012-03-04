@@ -19,6 +19,7 @@ public class ConfigFile {
 		hb.getConfig().addDefault("addhelp.newline", "/n/");
 		hb.getConfig().addDefault("default", "default");
 		hb.getConfig().addDefault("permissions.help", "helperbot.help");
+		hb.getConfig().addDefault("permissions.pagehelp", "helperbot.help.%page");
 		hb.getConfig().addDefault("permissions.addhelp", "helperbot.addhelp");
 		hb.getConfig().addDefault("permissions.delhelp", "helperbot.delhelp");
 		hb.getConfig().addDefault("shortcodes.player", "%player");
