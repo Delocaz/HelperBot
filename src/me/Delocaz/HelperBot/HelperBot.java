@@ -1,11 +1,6 @@
 package me.Delocaz.HelperBot;
 
-// import org.bukkit.command.Command;
-//import org.bukkit.command.CommandSender;
-//import org.bukkit.event.EventHandler;
-//import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-//import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class HelperBot extends JavaPlugin implements Listener {
@@ -21,7 +16,6 @@ public class HelperBot extends JavaPlugin implements Listener {
 		getCommand("help").setExecutor(hc);
 		getCommand("addhelp").setExecutor(ahc);
 		getCommand("delhelp").setExecutor(dhc);
-		//this.getServer().getPluginManager().registerEvents(this, this);
 	}
 	public void onDisable() {
 		System.out.println("[HelperBot] Bai!");
@@ -29,10 +23,4 @@ public class HelperBot extends JavaPlugin implements Listener {
 	public void disable() {
 		setEnabled(false);
 	}
-/*	@EventHandler(priority = EventPriority.LOWEST)
-	public void onPlayerJoin(PlayerJoinEvent e) {
-		if (getConfig().getBoolean("motd.enabled")) {
-			hc.onCommand((CommandSender) e.getPlayer(), (Command) null, (String) null, new String[]{cf.get("motd.page")});
-		}
-	}*/
 }

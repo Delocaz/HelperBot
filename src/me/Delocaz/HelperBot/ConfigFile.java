@@ -29,8 +29,6 @@ public class ConfigFile {
 		hb.getConfig().addDefault("shortcodes.world", "%world");
 		hb.getConfig().addDefault("shortcodes.coords", "%coords");
 		hb.getConfig().addDefault("locale", "en_US");
-		//hb.getConfig().addDefault("motd.enabled", false);
-		//hb.getConfig().addDefault("motd.page", "motd");
 		hb.getConfig().options().copyDefaults(true);
 		hb.saveConfig();
 		lng = new YamlConfiguration();
