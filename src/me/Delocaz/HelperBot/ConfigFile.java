@@ -29,10 +29,12 @@ public class ConfigFile {
 		hb.getConfig().addDefault("shortcodes.world", "%world");
 		hb.getConfig().addDefault("shortcodes.coords", "%coords");
 		hb.getConfig().addDefault("locale", "en_US");
+		//hb.getConfig().addDefault("motd.enabled", false);
+		//hb.getConfig().addDefault("motd.page", "motd");
 		hb.getConfig().options().copyDefaults(true);
 		hb.saveConfig();
 		lng = new YamlConfiguration();
-		File f = new File(hb.getDataFolder().getPath() + File.separator + "lang" + File.separator + get("locale"));
+		File f = new File(hb.getDataFolder().getPath() + File.separator + "lang" + File.separator + get("locale") + ".yml");
 		try {
 			lng.load(f);
 		} catch (FileNotFoundException e) {
