@@ -67,7 +67,7 @@ public class ConfigFile {
 		return hb.getConfig().getString(path);
 	}
 	public String getLang(String path) {
-		return lng.getString(path).replaceAll("&([0-9a-f])", "\u00A7$1");
+		return hb.colorize(lng.getString(path));
 	}
 	public void reload() {
 		hb.reloadConfig();

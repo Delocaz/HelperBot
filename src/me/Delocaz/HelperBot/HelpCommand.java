@@ -43,7 +43,7 @@ public class HelpCommand implements CommandExecutor {
 		}
 		List<String> l = readPage(page);
 		for (String s : l) {
-			sender.sendMessage(shortcodify(s.replaceAll("&([0-9a-f])", "\u00A7$1"), sender));
+			sender.sendMessage(shortcodify(hb.colorize(s), sender));
 		}
 		return true;
 	}
